@@ -12,6 +12,7 @@ const colorSchemes: Record<ColorScheme, {
   border: string;
   text: string;
   glow: string;
+  buttonGlow: string;
 }> = {
   blue: {
     name: "Electric Blue",
@@ -20,7 +21,8 @@ const colorSchemes: Record<ColorScheme, {
     primaryHover: "hover:bg-blue-400",
     border: "border-blue-500/30",
     text: "text-blue-400",
-    glow: "drop-shadow-[0_0_12px_rgba(59,130,246,0.5)]",
+    glow: "drop-shadow-[0_0_20px_rgba(59,130,246,0.6)] drop-shadow-[0_0_40px_rgba(59,130,246,0.4)]",
+    buttonGlow: "shadow-[0_0_20px_rgba(59,130,246,0.5)]",
   },
   green: {
     name: "Neon Green",
@@ -29,7 +31,8 @@ const colorSchemes: Record<ColorScheme, {
     primaryHover: "hover:bg-emerald-400",
     border: "border-emerald-500/30",
     text: "text-emerald-400",
-    glow: "drop-shadow-[0_0_12px_rgba(52,211,153,0.5)]",
+    glow: "drop-shadow-[0_0_20px_rgba(52,211,153,0.6)] drop-shadow-[0_0_40px_rgba(52,211,153,0.4)]",
+    buttonGlow: "shadow-[0_0_20px_rgba(52,211,153,0.5)]",
   },
   amber: {
     name: "Golden Amber",
@@ -38,7 +41,8 @@ const colorSchemes: Record<ColorScheme, {
     primaryHover: "hover:bg-amber-400",
     border: "border-amber-500/30",
     text: "text-amber-400",
-    glow: "drop-shadow-[0_0_12px_rgba(245,158,11,0.5)]",
+    glow: "drop-shadow-[0_0_20px_rgba(245,158,11,0.6)] drop-shadow-[0_0_40px_rgba(245,158,11,0.4)]",
+    buttonGlow: "shadow-[0_0_20px_rgba(245,158,11,0.5)]",
   },
   orange: {
     name: "Burnt Orange",
@@ -47,7 +51,8 @@ const colorSchemes: Record<ColorScheme, {
     primaryHover: "hover:bg-orange-400",
     border: "border-orange-500/30",
     text: "text-orange-400",
-    glow: "drop-shadow-[0_0_12px_rgba(249,115,22,0.5)]",
+    glow: "drop-shadow-[0_0_20px_rgba(249,115,22,0.6)] drop-shadow-[0_0_40px_rgba(249,115,22,0.4)]",
+    buttonGlow: "shadow-[0_0_20px_rgba(249,115,22,0.5)]",
   },
 };
 
@@ -59,7 +64,7 @@ function NeonHero({ scheme }: { scheme: ColorScheme }) {
       {/* Nav */}
       <nav className={`flex justify-between items-center px-8 py-6 border-b ${colors.border}`}>
         <span className="text-xl font-bold tracking-tight">
-          <span className={colors.text}>Jamie</span> Oarton
+          <span className={`${colors.text} ${colors.glow}`}>Jamie</span> Oarton
         </span>
         <div className="flex gap-8 text-sm text-gray-400">
           <a href="#" className={`hover:${colors.text} transition`}>Writings</a>
@@ -84,7 +89,7 @@ function NeonHero({ scheme }: { scheme: ColorScheme }) {
             fractional Chief AI Officer for forward-thinking organizations.
           </p>
           <div className="flex gap-4 justify-center">
-            <button className={`${colors.primary} ${colors.primaryHover} text-black font-semibold px-8 py-3 rounded-lg transition cursor-pointer`}>
+            <button className={`${colors.primary} ${colors.primaryHover} text-black font-semibold px-8 py-3 rounded-lg transition cursor-pointer ${colors.buttonGlow}`}>
               Work With Me
             </button>
             <button className={`border ${colors.border} ${colors.text} hover:bg-white/5 px-8 py-3 rounded-lg transition cursor-pointer`}>
@@ -95,15 +100,15 @@ function NeonHero({ scheme }: { scheme: ColorScheme }) {
           {/* Social proof */}
           <div className="mt-16 flex items-center justify-center gap-12 text-gray-500">
             <div className="text-center">
-              <div className={`text-2xl font-bold ${colors.text}`}>50K+</div>
+              <div className={`text-2xl font-bold ${colors.text} ${colors.glow}`}>50K+</div>
               <div className="text-xs">Newsletter Subscribers</div>
             </div>
             <div className="text-center">
-              <div className={`text-2xl font-bold ${colors.text}`}>100K+</div>
+              <div className={`text-2xl font-bold ${colors.text} ${colors.glow}`}>100K+</div>
               <div className="text-xs">YouTube Subscribers</div>
             </div>
             <div className="text-center">
-              <div className={`text-2xl font-bold ${colors.text}`}>15+</div>
+              <div className={`text-2xl font-bold ${colors.text} ${colors.glow}`}>15+</div>
               <div className="text-xs">Enterprise Clients</div>
             </div>
           </div>
