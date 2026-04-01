@@ -3,13 +3,13 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  /* Colour tokens — Palette A (warm amber accent) */
+  /* Colour tokens */
   --color-bg: #FAFAF7;
   --color-surface: #F2F0EB;
   --color-text: #1A1A1A;
   --color-text-secondary: #6B6B6B;
-  --color-accent: #C2703E;
-  --color-accent-hover: #A85C30;
+  --color-accent: #b8a600;
+  --color-accent-hover: #9a8b00;
   --color-border: #E5E2DC;
 
   /* Font aliases — bridged from next/font CSS variables */
