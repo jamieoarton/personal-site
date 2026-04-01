@@ -3,6 +3,7 @@ import { Inter, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { JsonLd, personSchema, websiteSchema } from "@/components/schema";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,6 +49,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
       >
+        <JsonLd data={personSchema} />
+        <JsonLd data={websiteSchema} />
         <Nav />
         {children}
         <Footer />
