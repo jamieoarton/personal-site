@@ -14,11 +14,11 @@ export default function About() {
           I help businesses make sense of AI.
         </h1>
         <div className="space-y-6 text-text-secondary leading-relaxed">
-          <p>Most businesses know AI matters. What they don't have is someone who can sit with the leadership team, understand the business, and build a strategy that actually connects to how the company makes money.</p>
-          <p>That's what I do. As a fractional Chief AI Officer through <a href="https://bramforth.ai" className="text-accent hover:text-accent-hover transition-colors" target="_blank" rel="noopener noreferrer">Bramforth AI</a>, I work with UK mid-market companies to turn AI confusion into clear strategy they can execute.</p>
+          <p>Most businesses know AI matters. What they don&apos;t have is someone who can sit with the leadership team, understand the business, and build a strategy that actually connects to how the company makes money.</p>
+          <p>That&apos;s what I do. As a fractional Chief AI Officer through <a href="https://bramforth.ai" className="text-accent hover:text-accent-hover transition-colors" target="_blank" rel="noopener noreferrer">Bramforth AI</a>, I work with UK mid-market companies to turn AI confusion into clear strategy they can execute.</p>
           <p>Before this, I spent years advising on AI strategy at the highest levels of UK government — navigating the gap between what AI can technically do and what organisations actually need it to do.</p>
           <p>I also write and create content about practical AI strategy. Not hype, not predictions — the real, messy, useful stuff that helps people make better decisions.</p>
-          <p>I don't believe in gurus. We're all figuring this out. I just happen to have been figuring it out in rooms where the stakes were very high, and I want to share what I've learned.</p>
+          <p>I don&apos;t believe in gurus. We&apos;re all figuring this out. I just happen to have been figuring it out in rooms where the stakes were very high, and I want to share what I&apos;ve learned.</p>
         </div>
         <div className="mt-12 pt-8 border-t border-border">
           <h2 className="font-display text-xl mb-4">Want to work together?</h2>

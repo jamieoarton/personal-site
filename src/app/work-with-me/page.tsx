@@ -11,13 +11,13 @@ export default function WorkWithMe() {
     <main className="px-6 py-16 md:px-8">
       <div className="max-w-3xl mx-auto">
         <h1 className="font-display text-4xl md:text-5xl mb-4">Choose your depth</h1>
-        <p className="text-text-secondary text-lg mb-12">Everyone's AI journey is different. Here's how I can help at each stage.</p>
+        <p className="text-text-secondary text-lg mb-12">Everyone&apos;s AI journey is different. Here&apos;s how I can help at each stage.</p>
         <div className="space-y-8">
           {/* Free tier */}
           <div className="p-8 rounded-lg border border-border">
             <p className="text-accent font-medium text-sm mb-1">Free</p>
             <h2 className="font-display text-2xl mb-3">Follow my thinking</h2>
-            <p className="text-text-secondary mb-4">I write and create videos about practical AI strategy — what works, what doesn't, and what most people get wrong. No gatekeeping, no upsell. Just useful thinking.</p>
+            <p className="text-text-secondary mb-4">I write and create videos about practical AI strategy — what works, what doesn&apos;t, and what most people get wrong. No gatekeeping, no upsell. Just useful thinking.</p>
             <div className="flex flex-wrap gap-4">
               <Link href="/writing" className="text-accent hover:text-accent-hover text-sm font-medium transition-colors">Read my articles →</Link>
               <Link href="/videos" className="text-accent hover:text-accent-hover text-sm font-medium transition-colors">Watch videos →</Link>
