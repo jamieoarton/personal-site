@@ -34,7 +34,7 @@ export default function Home() {
             {/* Newsletter form in hero */}
             <div className="mb-6">
               <p className="text-sm font-medium mb-3">
-                Get the weekly AI briefing
+                Subscribe to my newsletter
               </p>
               <SubscribeForm />
             </div>
