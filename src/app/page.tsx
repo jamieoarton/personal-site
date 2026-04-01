@@ -136,7 +136,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-4">
             {[
               { href: "https://jamieoarton.substack.com", label: "Substack" },
-              { href: "https://linkedin.com/in/jamieoarton", label: "LinkedIn" },
+              { href: "https://linkedin.com/in/joarton", label: "LinkedIn" },
               { href: "https://youtube.com/@jamieoarton", label: "YouTube" },
               { href: "https://tiktok.com/@jamieoarton", label: "TikTok" },
               { href: "https://x.com/jamieoarton", label: "X" },

@@ -20,7 +20,7 @@ export const personSchema = {
   },
   sameAs: [
     "https://jamieoarton.substack.com",
-    "https://linkedin.com/in/jamieoarton",
+    "https://linkedin.com/in/joarton",
     "https://youtube.com/@jamieoarton",
     "https://x.com/jamieoarton",
   ],
