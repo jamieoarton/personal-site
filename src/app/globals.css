@@ -13,7 +13,7 @@
   --color-border: #E5E2DC;
 
   /* Font aliases — bridged from next/font CSS variables */
-  --font-display: var(--font-instrument-serif);
+  --font-display: var(--font-inter);
   --font-body: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
