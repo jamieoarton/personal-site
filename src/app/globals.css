@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+@theme inline {
   /* Colour tokens — Palette A (warm amber accent) */
   --color-bg: #FAFAF7;
   --color-surface: #F2F0EB;
@@ -9,19 +9,11 @@
   --color-accent: #C2703E;
   --color-accent-hover: #A85C30;
   --color-border: #E5E2DC;
-}
 
-@theme inline {
-  --color-bg: var(--color-bg);
-  --color-surface: var(--color-surface);
-  --color-text: var(--color-text);
-  --color-text-secondary: var(--color-text-secondary);
-  --color-accent: var(--color-accent);
-  --color-accent-hover: var(--color-accent-hover);
-  --color-border: var(--color-border);
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
-  --font-mono: var(--font-mono);
+  /* Font aliases — bridged from next/font CSS variables */
+  --font-display: var(--font-instrument-serif);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
 }
 
 body {

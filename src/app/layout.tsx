@@ -45,13 +45,6 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
-        style={
-          {
-            "--font-body": "var(--font-inter)",
-            "--font-mono": "var(--font-geist-mono)",
-            "--font-display": "var(--font-instrument-serif)",
-          } as React.CSSProperties
-        }
       >
         {children}
       </body>
