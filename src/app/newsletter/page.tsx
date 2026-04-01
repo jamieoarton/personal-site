@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllArticles } from "@/lib/content";
+import { SubscribeForm } from "@/components/subscribe-form";
 
 export const metadata: Metadata = {
   title: "Newsletter — Weekly AI Strategy Briefing",
@@ -22,14 +23,9 @@ export default function Newsletter() {
           </p>
         </div>
 
-        <iframe
-          src="https://jamieoarton.substack.com/embed"
-          width="100%"
-          height="150"
-          className="rounded-md border-0 mb-4"
-          frameBorder="0"
-          scrolling="no"
-        />
+        <div className="mb-4">
+          <SubscribeForm />
+        </div>
         <p className="text-text-secondary text-sm text-center mb-16">
           Free. Unsubscribe anytime. No spam, ever.
         </p>

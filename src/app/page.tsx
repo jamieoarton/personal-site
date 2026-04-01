@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getAllArticles } from "@/lib/content";
+import { SubscribeForm } from "@/components/subscribe-form";
 
 export default function Home() {
   const articles = getAllArticles().filter((a) => a.featured).slice(0, 3);
@@ -35,14 +36,7 @@ export default function Home() {
               <p className="text-sm font-medium mb-3">
                 Get the weekly AI briefing
               </p>
-              <iframe
-                src="https://jamieoarton.substack.com/embed"
-                width="100%"
-                height="80"
-                className="rounded-md border-0"
-                frameBorder="0"
-                scrolling="no"
-              />
+              <SubscribeForm />
             </div>
           </div>
 
@@ -222,14 +216,7 @@ export default function Home() {
           <p className="text-text-secondary mb-6">
             What&apos;s working, what&apos;s not, and what to do about it.
           </p>
-          <iframe
-            src="https://jamieoarton.substack.com/embed"
-            width="100%"
-            height="150"
-            className="rounded-md border-0"
-            frameBorder="0"
-            scrolling="no"
-          />
+          <SubscribeForm />
         </div>
       </section>
     </main>
