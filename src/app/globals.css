@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @theme inline {
   /* Colour tokens — Palette A (warm amber accent) */
   --color-bg: #FAFAF7;

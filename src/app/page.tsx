@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { getAllArticles } from "@/lib/content";
 
 export default function Home() {
+  const articles = getAllArticles().filter((a) => a.featured).slice(0, 3);
   return (
     <main>
       {/* Hero Section */}
@@ -147,11 +149,43 @@ export default function Home() {
 
       {/* Latest Thinking Section */}
       <section className="bg-surface px-6 py-20 md:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl md:text-4xl mb-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl text-center mb-12">
             Latest thinking
           </h2>
-          <p className="text-text-secondary">Articles coming soon.</p>
+          {articles.length === 0 ? (
+            <p className="text-text-secondary text-center">Articles coming soon.</p>
+          ) : (
+            <>
+              <div className="grid md:grid-cols-3 gap-8">
+                {articles.map((article) => (
+                  <Link
+                    key={article.slug}
+                    href={`/writing/${article.slug}`}
+                    className="bg-bg rounded-lg p-8 block group"
+                  >
+                    <h3 className="font-display text-xl mb-3 group-hover:text-accent transition-colors">
+                      {article.title}
+                    </h3>
+                    <p className="text-text-secondary mb-4 text-sm">
+                      {article.description}
+                    </p>
+                    <span className="text-sm text-text-secondary">
+                      {article.readTime}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+              <div className="text-center mt-10">
+                <Link
+                  href="/writing"
+                  className="text-accent hover:text-accent-hover font-medium transition-colors"
+                >
+                  See all writing &rarr;
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </section>
 
