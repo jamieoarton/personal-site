@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import { getAllTopics, getTopicBySlug, getAllArticles } from "@/lib/content";
 import { JsonLd, articleSchema } from "@/components/schema";
@@ -76,7 +77,7 @@ export default async function TopicPage({ params }: Props) {
           prose-td:text-text-secondary
         "
         >
-          <MDXRemote source={topic.content} />
+          <MDXRemote source={topic.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </div>
 
         {/* Author attribution */}

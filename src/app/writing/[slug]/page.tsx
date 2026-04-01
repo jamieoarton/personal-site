@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getAllArticles, getArticleBySlug } from "@/lib/content";
 import { JsonLd, articleSchema } from "@/components/schema";
 
@@ -46,7 +47,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         </header>
         <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-text prose-p:text-text-secondary prose-p:leading-relaxed prose-a:text-accent hover:prose-a:text-accent-hover prose-strong:text-text prose-blockquote:border-accent prose-blockquote:text-text-secondary">
-          <MDXRemote source={article.content} />
+          <MDXRemote source={article.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </div>
       </article>
     </main>
