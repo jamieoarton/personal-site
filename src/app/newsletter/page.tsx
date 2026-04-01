@@ -1,20 +1,60 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { getAllArticles } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Newsletter",
-  description: "Practical AI strategy thinking delivered to your inbox. No spam, no hype.",
+  title: "Newsletter — Weekly AI Strategy Briefing",
+  description: "One actionable AI insight per week. What's working, what's not, and what to do about it.",
 };
 
 export default function Newsletter() {
+  const articles = getAllArticles().slice(0, 3);
+
   return (
     <main className="px-6 py-16 md:px-8">
-      <div className="max-w-xl mx-auto text-center">
-        <h1 className="font-display text-4xl md:text-5xl mb-4">Get my thinking in your inbox</h1>
-        <p className="text-text-secondary text-lg mb-8">I write about practical AI strategy — what works, what doesn&apos;t, and what most businesses get wrong. Direct, useful, no fluff.</p>
-        <a href="https://jamieoarton.substack.com" className="inline-block bg-accent hover:bg-accent-hover text-white font-medium px-8 py-3 rounded-md transition-colors mb-8" target="_blank" rel="noopener noreferrer">
-          Subscribe on Substack
-        </a>
-        <p className="text-text-secondary text-sm">Free. Unsubscribe anytime. No spam, ever.</p>
+      <div className="max-w-xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="font-display text-4xl md:text-5xl mb-4">
+            One actionable AI insight per week
+          </h1>
+          <p className="text-text-secondary text-lg">
+            What&apos;s working, what&apos;s not, and what to do about it. Straight to your inbox.
+          </p>
+        </div>
+
+        <iframe
+          src="https://jamieoarton.substack.com/embed"
+          width="100%"
+          height="150"
+          className="rounded-md border-0 mb-4"
+          frameBorder="0"
+          scrolling="no"
+        />
+        <p className="text-text-secondary text-sm text-center mb-16">
+          Free. Unsubscribe anytime. No spam, ever.
+        </p>
+
+        {articles.length > 0 && (
+          <div>
+            <h2 className="font-display text-xl mb-6">Recent issues</h2>
+            <div className="space-y-4">
+              {articles.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/writing/${article.slug}`}
+                  className="block border border-border rounded-lg p-4 hover:border-accent transition-colors group"
+                >
+                  <h3 className="font-medium group-hover:text-accent transition-colors">
+                    {article.title}
+                  </h3>
+                  <p className="text-text-secondary text-sm mt-1">
+                    {article.readTime}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );

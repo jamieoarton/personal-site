@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,9 +11,18 @@ export default function About() {
   return (
     <main className="px-6 py-16 md:px-8">
       <div className="max-w-3xl mx-auto">
-        <h1 className="font-display text-4xl md:text-5xl mb-8">
-          I help businesses make sense of AI.
-        </h1>
+        <div className="flex flex-col md:flex-row items-start gap-8 mb-12">
+          <Image
+            src="/jamie.png"
+            alt="Jamie Oarton"
+            width={200}
+            height={200}
+            className="rounded-lg flex-shrink-0"
+          />
+          <h1 className="font-display text-4xl md:text-5xl">
+            I help businesses make sense of AI.
+          </h1>
+        </div>
         <div className="space-y-6 text-text-secondary leading-relaxed">
           <p>Most businesses know AI matters. What they don&apos;t have is someone who can sit with the leadership team, understand the business, and build a strategy that actually connects to how the company makes money.</p>
           <p>That&apos;s what I do. As a fractional Chief AI Officer through <a href="https://bramforth.ai" className="text-accent hover:text-accent-hover transition-colors" target="_blank" rel="noopener noreferrer">Bramforth AI</a>, I work with UK mid-market companies to turn AI confusion into clear strategy they can execute.</p>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getAllArticles } from "@/lib/content";
 
@@ -22,7 +23,7 @@ export default function Home() {
               href="/newsletter"
               className="bg-accent hover:bg-accent-hover text-white font-medium px-8 py-3 rounded-md transition-colors"
             >
-              Get My Latest Thinking
+              Get the Weekly AI Briefing
             </Link>
             <Link
               href="/work-with-me"
@@ -189,23 +190,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter CTA Section */}
+      {/* About preview */}
       <section className="px-6 py-20 md:px-8">
+        <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-8">
+          <Image
+            src="/jamie.png"
+            alt="Jamie Oarton"
+            width={160}
+            height={160}
+            className="rounded-full"
+          />
+          <div>
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              Hi, I&apos;m Jamie.
+            </h2>
+            <p className="text-text-secondary leading-relaxed mb-4">
+              I&apos;ve spent years advising on AI strategy at the highest levels of UK government. Now I help mid-market businesses turn AI confusion into clear strategy through{" "}
+              <a href="https://bramforth.ai" className="text-accent hover:text-accent-hover transition-colors" target="_blank" rel="noopener noreferrer">Bramforth AI</a>.
+            </p>
+            <Link href="/about" className="text-accent hover:text-accent-hover font-medium transition-colors">
+              More about me &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter CTA Section */}
+      <section className="bg-surface px-6 py-20 md:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-4xl mb-4">
-            Get my thinking in your inbox
+            One actionable AI insight per week
           </h2>
           <p className="text-text-secondary text-lg mb-8">
-            Practical AI strategy. No spam, no hype, no fluff.
+            What&apos;s working, what&apos;s not, and what to do about it. Straight to your inbox.
           </p>
-          <a
-            href="https://substack.com/@jamieoarton"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-accent hover:bg-accent-hover text-white font-medium px-8 py-3 rounded-md transition-colors inline-block"
-          >
-            Subscribe on Substack
-          </a>
+          <iframe
+            src="https://jamieoarton.substack.com/embed"
+            width="100%"
+            height="150"
+            className="rounded-md border-0"
+            frameBorder="0"
+            scrolling="no"
+          />
+          <p className="text-text-secondary text-sm mt-4">
+            Free. Unsubscribe anytime. No spam, ever.
+          </p>
         </div>
       </section>
     </main>
