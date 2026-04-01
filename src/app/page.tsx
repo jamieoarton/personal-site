@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getAllArticles } from "@/lib/content";
+import { getAllArticles, getAllTopics } from "@/lib/content";
 import { SubscribeForm } from "@/components/subscribe-form";
 
 export default function Home() {
   const articles = getAllArticles().filter((a) => a.featured).slice(0, 3);
+  const topics = getAllTopics();
   return (
     <main>
       {/* Hero — Justin-style two-column intro */}
@@ -128,6 +129,36 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Deep dives */}
+      {topics.length > 0 && (
+        <section className="bg-surface px-6 py-16 md:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="font-display text-2xl md:text-3xl mb-8">
+              Deep dives
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {topics.map((topic) => (
+                <Link
+                  key={topic.slug}
+                  href={`/topics/${topic.slug}`}
+                  className="bg-bg rounded-lg p-6 block group hover:border hover:border-accent transition-colors border border-transparent"
+                >
+                  <h3 className="font-display text-lg mb-2 group-hover:text-accent transition-colors">
+                    {topic.title}
+                  </h3>
+                  <p className="text-text-secondary text-sm mb-3">
+                    {topic.description}
+                  </p>
+                  <span className="text-sm text-text-secondary">
+                    {topic.readTime}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Social media */}
       <section className="bg-surface px-6 py-12 md:px-8">
