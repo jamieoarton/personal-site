@@ -4,6 +4,9 @@ import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { JsonLd, personSchema, websiteSchema } from "@/components/schema";
+import { Analytics } from "@/components/analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -54,6 +57,9 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
+        <Analytics />
+        <VercelAnalytics />
+        <SpeedInsights />
       </body>
     </html>
   );
