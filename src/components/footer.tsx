@@ -26,6 +26,14 @@ export function Footer() {
               Bramforth AI
             </a>
           </p>
+          <p className="mt-1">
+            <a
+              href="mailto:me@jamieoarton.com"
+              className="hover:text-text transition-colors"
+            >
+              me@jamieoarton.com
+            </a>
+          </p>
         </div>
         <div className="flex flex-wrap gap-4">
           {socialLinks.map((link) => (
