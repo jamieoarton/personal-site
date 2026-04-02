@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getAllArticles, getArticleBySlug } from "@/lib/content";
-import { JsonLd, articleSchema } from "@/components/schema";
+import { AuthorBio } from "@/components/author-bio";
+import { JsonLd, articleSchema, breadcrumbSchema } from "@/components/schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -37,7 +38,21 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <main className="px-6 py-16 md:px-8">
-      <JsonLd data={articleSchema(article.meta)} />
+      <JsonLd
+        data={articleSchema({
+          title: article.meta.title,
+          description: article.meta.description,
+          date: article.meta.date,
+          url: `/writing/${article.meta.slug}`,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Writing", url: "/writing" },
+          { name: article.meta.title, url: `/writing/${article.meta.slug}` },
+        ])}
+      />
       <article className="max-w-3xl mx-auto">
         <header className="mb-12">
           <h1 className="font-display text-3xl md:text-5xl mb-4 leading-tight">{article.meta.title}</h1>
@@ -49,6 +64,7 @@ export default async function ArticlePage({ params }: Props) {
         <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-text prose-p:text-text-secondary prose-p:leading-relaxed prose-a:text-accent hover:prose-a:text-accent-hover prose-strong:text-text prose-blockquote:border-accent prose-blockquote:text-text-secondary">
           <MDXRemote source={article.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </div>
+        <AuthorBio />
       </article>
     </main>
   );

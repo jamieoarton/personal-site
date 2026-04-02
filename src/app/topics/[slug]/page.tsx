@@ -4,7 +4,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import { getAllTopics, getTopicBySlug, getAllArticles } from "@/lib/content";
-import { JsonLd, articleSchema } from "@/components/schema";
+import { AuthorBio } from "@/components/author-bio";
+import { JsonLd, articleSchema, breadcrumbSchema } from "@/components/schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -47,9 +48,16 @@ export default async function TopicPage({ params }: Props) {
         data={articleSchema({
           title: topic.meta.title,
           description: topic.meta.description,
-          date: new Date().toISOString().split("T")[0],
-          slug: `topics/${slug}`,
+          date: "2026-03-31",
+          url: `/topics/${slug}`,
         })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Topics", url: "/writing" },
+          { name: topic.meta.title, url: `/topics/${slug}` },
+        ])}
       />
 
       <article className="max-w-3xl mx-auto">
@@ -80,22 +88,7 @@ export default async function TopicPage({ params }: Props) {
           <MDXRemote source={topic.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </div>
 
-        {/* Author attribution */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <p className="text-text-secondary text-sm">
-            <strong className="text-text">Jamie Oarton</strong> is an AI
-            strategy advisor and fractional Chief AI Officer through{" "}
-            <a
-              href="https://bramforth.ai"
-              className="text-accent hover:text-accent-hover transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Bramforth AI
-            </a>
-            , helping UK mid-market businesses build AI strategies that work.
-          </p>
-        </div>
+        <AuthorBio />
 
         {/* Related articles */}
         {relatedArticles.length > 0 && (
