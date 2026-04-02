@@ -82,6 +82,36 @@ export function getTopicBySlug(slug: string) {
   };
 }
 
+/**
+ * Extract FAQ Q&A pairs from markdown content.
+ * Looks for ### headings after a "Frequently Asked Questions" H2.
+ */
+export function extractFAQs(content: string): { question: string; answer: string }[] {
+  const faqSection = content.split(/^## Frequently Asked Questions/m)[1];
+  if (!faqSection) return [];
+
+  const faqs: { question: string; answer: string }[] = [];
+  const blocks = faqSection.split(/^### /m).filter(Boolean);
+
+  for (const block of blocks) {
+    const lines = block.trim().split("\n");
+    const question = lines[0].trim();
+    const answer = lines
+      .slice(1)
+      .join(" ")
+      .replace(/\n/g, " ")
+      .replace(/\s+/g, " ")
+      .replace(/\*\*/g, "")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .trim();
+    if (question && answer) {
+      faqs.push({ question, answer });
+    }
+  }
+
+  return faqs;
+}
+
 export function getArticleBySlug(slug: string) {
   const filePath = path.join(contentDir, `${slug}.mdx`);
   if (!fs.existsSync(filePath)) return null;

@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
-import { getAllTopics, getTopicBySlug, getAllArticles } from "@/lib/content";
+import { getAllTopics, getTopicBySlug, getAllArticles, extractFAQs } from "@/lib/content";
 import { AuthorBio } from "@/components/author-bio";
-import { JsonLd, articleSchema, breadcrumbSchema } from "@/components/schema";
+import { JsonLd, articleSchema, breadcrumbSchema, faqSchema } from "@/components/schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -37,6 +37,8 @@ export default async function TopicPage({ params }: Props) {
   const topic = getTopicBySlug(slug);
   if (!topic) notFound();
 
+  const faqs = extractFAQs(topic.content);
+
   // Find related articles that share this topic slug
   const relatedArticles = getAllArticles().filter((a) =>
     a.topics.some((t) => t === slug || slug.includes(t) || t.includes(slug))
@@ -59,6 +61,8 @@ export default async function TopicPage({ params }: Props) {
           { name: topic.meta.title, url: `/topics/${slug}` },
         ])}
       />
+
+      {faqs.length > 0 && <JsonLd data={faqSchema(faqs)} />}
 
       <article className="max-w-3xl mx-auto">
         <header className="mb-12">
