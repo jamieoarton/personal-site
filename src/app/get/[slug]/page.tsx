@@ -109,7 +109,7 @@ export default async function LeadMagnetPage({ params }: PageProps) {
           {/* Email capture */}
           <div className="bg-surface border border-border rounded-lg p-6 sm:p-8">
             <p className="font-display font-semibold text-text mb-1">
-              Get it free — straight to your inbox
+              Get it free - straight to your inbox
             </p>
             <p className="text-text-secondary text-sm mb-5">
               Free. No spam. Unsubscribe anytime.

@@ -4,7 +4,7 @@ import { getAllArticles } from "@/lib/content";
 import { SubscribeForm } from "@/components/subscribe-form";
 
 export const metadata: Metadata = {
-  title: "Newsletter — Weekly AI Strategy Briefing",
+  title: "Newsletter - Weekly AI Strategy Briefing",
   description: "One actionable AI insight per week. What's working, what's not, and what to do about it.",
 };
 

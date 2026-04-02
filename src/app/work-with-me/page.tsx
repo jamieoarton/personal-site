@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Work With Me",
-  description: "Choose your depth — free content, community, or direct fractional CAIO engagement.",
+  description: "Choose your depth - free content, community, or direct fractional CAIO engagement.",
 };
 
 export default function WorkWithMe() {
@@ -21,7 +21,7 @@ export default function WorkWithMe() {
             <p className="text-accent font-medium text-sm mb-1">Free</p>
             <h2 className="font-display text-2xl mb-3">Follow my thinking</h2>
             <p className="text-text-secondary mb-4">
-              I write about practical AI strategy — what works, what doesn&apos;t, and what
+              I write about practical AI strategy - what works, what doesn&apos;t, and what
               most people get wrong. No gatekeeping, no upsell. Just useful thinking you can
               act on immediately.
             </p>
@@ -76,14 +76,14 @@ export default function WorkWithMe() {
               >
                 Bramforth AI
               </a>
-              , I work as a fractional Chief AI Officer — embedded in your leadership team.
+              , I work as a fractional Chief AI Officer - embedded in your leadership team.
             </p>
             <div className="bg-surface rounded-lg p-6 mb-6">
               <h3 className="font-medium mb-3">What this looks like</h3>
               <ul className="space-y-2 text-text-secondary text-sm">
-                <li><strong className="text-text">AI Diagnostic</strong> — A focused 2-day audit of where you are, where the gaps are, and what to do first</li>
-                <li><strong className="text-text">Strategic engagement</strong> — One day per week embedded with your leadership team, building and executing your AI strategy</li>
-                <li><strong className="text-text">Deep embed</strong> — Two days per week for organisations that need hands-on capability building, team training, and multi-initiative oversight</li>
+                <li><strong className="text-text">AI Diagnostic</strong> - A focused 2-day audit of where you are, where the gaps are, and what to do first</li>
+                <li><strong className="text-text">Strategic engagement</strong> - One day per week embedded with your leadership team, building and executing your AI strategy</li>
+                <li><strong className="text-text">Deep embed</strong> - Two days per week for organisations that need hands-on capability building, team training, and multi-initiative oversight</li>
               </ul>
             </div>
             <div className="bg-surface rounded-lg p-6 mb-6">

@@ -51,5 +51,5 @@ No test framework is configured yet.
 - **Tailwind v4** - utility-first styling; no separate tailwind.config file (v4 uses CSS-based config)
 - **TypeScript strict** - all code must pass strict type checking
 - **Metadata** in `layout.tsx` needs updating from default "Create Next App" placeholder
-- **No API routes** exist yet
+- **No em-dashes** - never use em-dashes (—) in any content, copy, or articles. Use hyphens ( - ), commas, or restructure instead
 - Do not commit `.env` files, `node_modules/`, or `.next/` build output

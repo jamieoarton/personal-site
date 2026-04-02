@@ -8,7 +8,7 @@ export default function Home() {
   const topics = getAllTopics();
   return (
     <main>
-      {/* Hero — Justin-style two-column intro */}
+      {/* Hero - Justin-style two-column intro */}
       <section className="px-6 py-16 md:py-24 md:px-8">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
           <div className="flex-1">
@@ -54,14 +54,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What I do — soft credentials */}
+      {/* What I do - soft credentials */}
       <section className="bg-surface px-6 py-16 md:px-8">
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
           <div className="bg-bg rounded-lg p-6">
             <h3 className="font-medium mb-2">AI Strategy</h3>
             <p className="text-text-secondary text-sm">
               I help leadership teams cut through the hype and build AI
-              strategies grounded in business reality — not vendor wishlists.
+              strategies grounded in business reality - not vendor wishlists.
             </p>
           </div>
           <div className="bg-bg rounded-lg p-6">
@@ -75,7 +75,7 @@ export default function Home() {
             <h3 className="font-medium mb-2">Fractional CAIO</h3>
             <p className="text-text-secondary text-sm">
               Embedded AI leadership for your organisation. Strategy,
-              governance, and capability building — through{" "}
+              governance, and capability building - through{" "}
               <a
                 href="https://bramforth.ai"
                 className="text-accent hover:text-accent-hover transition-colors"
@@ -238,7 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter CTA — bottom */}
+      {/* Newsletter CTA - bottom */}
       <section className="bg-surface px-6 py-16 md:px-8">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="font-display text-2xl md:text-3xl mb-3">

@@ -36,7 +36,7 @@ export default function About() {
           <h2 className="font-display text-2xl text-text">Background</h2>
 
           <p>
-            I&apos;ve been working with AI in some capacity since 2011 — long before
+            I&apos;ve been working with AI in some capacity since 2011 - long before
             it became a boardroom conversation. My background is a mixture of
             government advisory work, military service, and running my own businesses
             since 2017.
@@ -46,7 +46,7 @@ export default function About() {
             I hold a Masters in Mathematics with a specialism in Cryptography, which
             gave me a foundation in the kind of structured, evidence-based thinking
             that most AI conversations are missing. I&apos;m not interested in hype
-            or speculation — I care about what actually works, backed by data, tested
+            or speculation - I care about what actually works, backed by data, tested
             in practice.
           </p>
 
@@ -63,7 +63,7 @@ export default function About() {
             , I spent years advising on AI strategy at the highest levels of UK
             government, military, and diplomatic services. That experience taught me
             something that most AI consultants miss: the gap between what AI can
-            technically do and what organisations actually need it to do is enormous —
+            technically do and what organisations actually need it to do is enormous -
             and closing it is a leadership problem, not a technology problem.
           </p>
 
@@ -71,7 +71,7 @@ export default function About() {
 
           <p>
             Through Bramforth AI, I work as a fractional Chief AI Officer for UK
-            mid-market companies — typically £20M–£100M revenue — helping leadership
+            mid-market companies - typically £20M–£100M revenue - helping leadership
             teams build AI strategies that connect to how they make money. I&apos;ve
             advised dozens of companies across defence, security, medical, finance,
             law, and manufacturing, with millions in annualised revenue between them.
@@ -81,12 +81,12 @@ export default function About() {
             I also train leadership teams on practical AI adoption. I&apos;ve delivered
             AI courses to senior British Army officers on getting started with AI and
             prompt engineering, and I run workshops for business leaders who need to
-            make decisions about AI — not just understand it.
+            make decisions about AI - not just understand it.
           </p>
 
           <p>
             Outside of client work, I write and create content about practical AI
-            strategy — what works, what doesn&apos;t, and what most people get wrong. I
+            strategy - what works, what doesn&apos;t, and what most people get wrong. I
             share this through my{" "}
             <a
               href="https://jamieoarton.substack.com"
@@ -113,11 +113,11 @@ export default function About() {
           <p>
             I don&apos;t believe in AI gurus. We&apos;re all figuring this out. I just
             happen to have been figuring it out in rooms where the stakes were very
-            high — and I want to share what I&apos;ve learned.
+            high - and I want to share what I&apos;ve learned.
           </p>
 
           <p>
-            I believe most AI failures aren&apos;t technology failures — they&apos;re
+            I believe most AI failures aren&apos;t technology failures - they&apos;re
             strategy failures. Companies buy tools without a plan, run pilots without
             success criteria, and delegate AI to IT when it should be a leadership
             conversation. My job is to fix that.

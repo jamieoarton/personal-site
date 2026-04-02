@@ -26,7 +26,7 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "Jamie Oarton — AI Strategy & Fractional CAIO",
+    default: "Jamie Oarton - AI Strategy & Fractional CAIO",
     template: "%s | Jamie Oarton",
   },
   description:
