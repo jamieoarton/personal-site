@@ -32,7 +32,13 @@ export async function POST(request: NextRequest) {
           send_welcome_email: true,
           utm_source: source || "jamieoarton.com",
           utm_medium: "website",
+          utm_campaign: source?.startsWith("lead-magnet-")
+            ? source.replace("lead-magnet-", "")
+            : "",
           referring_site: "https://jamieoarton.com",
+          custom_fields: [
+            { name: "Source", value: source || "website" },
+          ],
         }),
       }
     );
