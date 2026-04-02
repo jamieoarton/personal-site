@@ -53,7 +53,9 @@ Using the AI Strategy Compass framework, check that any tool under consideration
 - **Builds capability** (can your team learn to manage this independently?)
 - **Has clear success metrics** (how will you know it's working?)
 
-### Step 3: Evaluate on five dimensions
+### Step 3: Evaluate on seven dimensions
+
+The first five apply to any software purchase. The last two are AI-specific — and they're where most companies fail to ask the right questions.
 
 | Dimension | What to assess | Red flags |
 |---|---|---|
@@ -62,6 +64,18 @@ Using the AI Strategy Compass framework, check that any tool under consideration
 | **Integration** | Does it connect to your existing systems? | Requires extensive custom integration |
 | **Total cost** | Licence + implementation + training + ongoing maintenance | Per-seat pricing that scales unexpectedly |
 | **Exit plan** | Can you export your data and leave? What format? | Data lock-in, proprietary formats |
+| **Model transparency** | Which AI model powers the tool? Can you see how it reaches conclusions? What happens when the model is updated? | "Proprietary AI" with no detail on how it works |
+| **Output reliability** | What's the hallucination/error rate? How does the tool handle uncertainty? Can it say "I don't know"? | No published accuracy metrics, no confidence scoring, no human-in-the-loop option |
+
+### Why AI vendor selection is different from normal software
+
+Evaluating an AI tool is fundamentally different from evaluating a CRM or an ERP. Three things make it harder:
+
+**Outputs are probabilistic, not deterministic.** A normal software tool produces the same output every time you give it the same input. An AI tool might not. You need to understand the error rate and what happens when the AI gets it wrong.
+
+**Your data becomes part of the product.** Many AI tools use your data to improve their models. This means your confidential information could influence outputs for other customers — or be exposed in training data leaks. The question "is our data used for model training?" is non-negotiable.
+
+**Models change without warning.** When an AI vendor updates their underlying model, your tool's behaviour can change overnight — different quality, different outputs, different costs. Ask: "How will we be notified about model changes? Can we pin to a specific model version?"
 
 ### Step 4: Run a time-boxed pilot
 
@@ -105,9 +119,9 @@ Use this when assessing any AI vendor:
 
 **Evaluating features instead of outcomes.** A long feature list doesn't mean the tool will deliver value. Evaluate based on the specific business outcome you need, not the feature comparison chart.
 
-**Skipping the data question.** If the tool requires data you don't have, or your data isn't in the right format, the tool won't work — regardless of how good the demo looked. Assess your data readiness first.
+**Skipping the data question.** If the tool requires data you don't have, or your data isn't in the right format, the tool won't work — regardless of how good the demo looked. [Assessing your data readiness](/topics/ai-data-readiness) before evaluating vendors is essential.
 
-**Buying without governance.** Every new AI tool is a new data handling risk. If you don't have governance in place (The Four-Step AI Governance Model), each tool purchase increases your exposure.
+**Buying without governance.** Every new AI tool is a new data handling risk. If you don't have [AI governance](/topics/ai-governance) in place, each tool purchase increases your exposure.
 
 ## Frequently Asked Questions
 
