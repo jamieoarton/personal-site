@@ -114,7 +114,7 @@ export default async function LeadMagnetPage({ params }: PageProps) {
             <p className="text-text-secondary text-sm mb-5">
               Free. No spam. Unsubscribe anytime.
             </p>
-            <BeehiivForm />
+            <BeehiivForm source={`lead-magnet-${lm.slug}`} />
           </div>
 
           {/* Keyword hint */}

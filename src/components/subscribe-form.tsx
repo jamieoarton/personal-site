@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface SubscribeFormProps {
   compact?: boolean;
+  source?: string;
 }
 
-export function SubscribeForm({ compact = false }: SubscribeFormProps) {
+export function SubscribeForm({ compact = false, source = "newsletter" }: SubscribeFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -16,20 +17,31 @@ export function SubscribeForm({ compact = false }: SubscribeFormProps) {
 
     setStatus("loading");
 
-    // Substack doesn't have a public API for subscriptions,
-    // so we redirect to the Substack subscribe page with email pre-filled
-    window.open(
-      `https://jamieoarton.substack.com/subscribe?email=${encodeURIComponent(email)}`,
-      "_blank"
-    );
-    setStatus("success");
-    setEmail("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source }),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+      setStatus("success");
+      setEmail("");
+    } catch {
+      // Fallback to Substack if API fails
+      window.open(
+        `https://jamieoarton.substack.com/subscribe?email=${encodeURIComponent(email)}`,
+        "_blank"
+      );
+      setStatus("success");
+      setEmail("");
+    }
   }
 
   if (status === "success") {
     return (
       <p className="text-accent font-medium text-sm">
-        Check your email to confirm your subscription.
+        You&apos;re in! Check your email.
       </p>
     );
   }
