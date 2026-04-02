@@ -32,13 +32,22 @@ export const metadata: Metadata = {
   description:
     "Helping businesses navigate AI with clarity. Writer, advisor, and fractional Chief AI Officer.",
   metadataBase: new URL("https://jamieoarton.com"),
+  alternates: {
+    canonical: "https://jamieoarton.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
     siteName: "Jamie Oarton",
+    images: [{ url: "/jamie.png", width: 1024, height: 1024, alt: "Jamie Oarton" }],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/jamie.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
