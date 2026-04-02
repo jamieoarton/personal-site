@@ -73,7 +73,7 @@ export default async function TopicPage({ params }: Props) {
             {topic.meta.description}
           </p>
           <p className="text-sm text-text-secondary mt-4">
-            {topic.meta.readTime} &middot; By Jamie Oarton
+            {topic.meta.readTime} &middot; By Jamie Oarton &middot; Last updated March 2026
           </p>
         </header>
 
