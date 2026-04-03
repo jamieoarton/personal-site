@@ -46,6 +46,19 @@ export const leadMagnets: LeadMagnet[] = [
     ],
     keyword: "COMPASS",
   },
+  {
+    slug: "content-engine",
+    title: "Get the 1-Hour AI Content Engine",
+    description:
+      "Turn one 10-minute voice recording into a week of content across LinkedIn, newsletter, TikTok, and YouTube.",
+    bullets: [
+      "5-step system from recording to published",
+      "Which AI tools to use at each step",
+      "Weekly content schedule you can copy",
+      "The prompts to convert one transcript into 7-10 pieces",
+    ],
+    keyword: "CONTENT",
+  },
 ];
 
 export function getLeadMagnet(slug: string): LeadMagnet | undefined {
