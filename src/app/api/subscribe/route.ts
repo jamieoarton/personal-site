@@ -38,6 +38,9 @@ export async function POST(request: NextRequest) {
           referring_site: "https://jamieoarton.com",
           custom_fields: [
             { name: "Source", value: source || "website" },
+            ...(source?.startsWith("lead-magnet-")
+              ? [{ name: "lead_magnet", value: source.replace("lead-magnet-", "") }]
+              : []),
           ],
         }),
       }
