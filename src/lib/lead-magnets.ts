@@ -22,16 +22,17 @@ export const leadMagnets: LeadMagnet[] = [
   },
   {
     slug: "shadow-ai-policy",
-    title: "Get the Shadow AI Policy Template",
+    title: "Get The \"Yes, Safely\" AI Playbook",
     description:
-      "A ready-to-adapt AI usage policy with data classification framework for UK businesses.",
+      "A 12-slide blueprint for governing AI in your organisation. Data classification, approved tools, acceptable use, and an employee decision tree.",
     bullets: [
-      "Complete AI acceptable use policy template",
-      "Data classification framework (4 levels)",
-      "Approved tool evaluation criteria",
-      "UK GDPR compliance checklist",
+      "12-slide visual governance playbook",
+      "Data classification protocol (4 levels)",
+      "AI tool authorisation matrix",
+      "Employee decision tree for daily AI use",
+      "Accountability framework and review cycle",
     ],
-    keyword: "POLICY",
+    keyword: "PLAYBOOK",
   },
   {
     slug: "ai-strategy-compass",
