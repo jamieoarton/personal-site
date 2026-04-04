@@ -60,6 +60,32 @@ export const leadMagnets: LeadMagnet[] = [
     ],
     keyword: "CONTENT",
   },
+  {
+    slug: "tool-stack",
+    title: "Get the AI Tool Stack Cheat Sheet",
+    description:
+      "Stop comparing fifty tools. Here is the exact stack that works, with a free alternative for everything.",
+    bullets: [
+      "The right tool for 12 common tasks",
+      "Free alternative for every paid tool",
+      "3-question test before adding any new tool",
+      "Real monthly cost breakdown (under £55)",
+    ],
+    keyword: "STACK",
+  },
+  {
+    slug: "claude-code-guide",
+    title: "Get the Claude Code Setup Guide",
+    description:
+      "Go from zero to your first useful AI task in 10 minutes. No dev background needed.",
+    bullets: [
+      "Step-by-step install (Mac, Windows, Linux)",
+      "Your first 5 commands to try immediately",
+      "What Claude Code is great at (and what it is not)",
+      "Pro tips and common mistakes to avoid",
+    ],
+    keyword: "CODE",
+  },
 ];
 
 export function getLeadMagnet(slug: string): LeadMagnet | undefined {
