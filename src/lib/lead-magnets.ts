@@ -4,6 +4,7 @@ export interface LeadMagnet {
   description: string;
   bullets: string[];
   keyword: string;
+  automationId?: string;
 }
 
 export const leadMagnets: LeadMagnet[] = [
@@ -19,6 +20,7 @@ export const leadMagnets: LeadMagnet[] = [
       "Clear next steps based on your score",
     ],
     keyword: "DIAGNOSTIC",
+    automationId: "aut_48573b31-6689-41e0-87b3-7077e1acafca",
   },
   {
     slug: "shadow-ai-policy",
@@ -33,6 +35,7 @@ export const leadMagnets: LeadMagnet[] = [
       "Accountability framework and review cycle",
     ],
     keyword: "PLAYBOOK",
+    automationId: "aut_953ffc5f-a40e-4f9e-8cf3-560c675051d5",
   },
   {
     slug: "ai-strategy-compass",
@@ -46,6 +49,7 @@ export const leadMagnets: LeadMagnet[] = [
       "Benchmark against the research",
     ],
     keyword: "COMPASS",
+    automationId: "aut_372dda5d-687d-43d5-91ef-87fd1085fd1e",
   },
   {
     slug: "content-engine",
@@ -85,6 +89,21 @@ export const leadMagnets: LeadMagnet[] = [
       "Pro tips and common mistakes to avoid",
     ],
     keyword: "CODE",
+  },
+  {
+    slug: "second-brain",
+    title: "Give Your AI a Memory",
+    description:
+      "Stop re-explaining yourself every time you open Claude. Set up one folder that compounds your knowledge forever.",
+    bullets: [
+      "Why your AI starts from zero every session (and the fix)",
+      "Step-by-step Obsidian install on Mac with screenshots",
+      "How to connect Claude to your vault using Cowork",
+      "The one habit that makes the whole system compound",
+      "Bonus: Excalidraw for visual thinkers",
+    ],
+    keyword: "GUIDE",
+    automationId: "aut_4fb991c9-23d1-4e0c-9147-ca757c36a99a",
   },
 ];
 
