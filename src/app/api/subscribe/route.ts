@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
 
     if (subscriberId && automationId) {
       const journeyResponse = await fetch(
-        `https://api.beehiiv.com/v2/publications/${publicationId}/automation_journeys`,
+        `https://api.beehiiv.com/v2/publications/${publicationId}/automations/${automationId}/journeys`,
         {
           method: "POST",
           headers: {
@@ -73,8 +73,7 @@ export async function POST(request: NextRequest) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            subscriber_id: subscriberId,
-            automation_id: automationId,
+            subscription_id: subscriberId,
           }),
         }
       );
