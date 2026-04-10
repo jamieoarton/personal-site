@@ -5,9 +5,10 @@ import { useState } from "react";
 interface BeehiivFormProps {
   publicationId?: string;
   source?: string;
+  automationId?: string;
 }
 
-export function BeehiivForm({ publicationId, source }: BeehiivFormProps) {
+export function BeehiivForm({ publicationId, source, automationId }: BeehiivFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -39,7 +40,7 @@ export function BeehiivForm({ publicationId, source }: BeehiivFormProps) {
       const res = await fetch(`/api/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: source || "website" }),
+        body: JSON.stringify({ email, source: source || "website", automationId }),
       });
 
       if (!res.ok) {

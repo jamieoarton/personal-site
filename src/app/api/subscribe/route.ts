@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
-  const { email, source } = await request.json();
+  const { email, source, automationId } = await request.json();
 
   if (!email || typeof email !== "string") {
     return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -39,7 +39,12 @@ export async function POST(request: NextRequest) {
           custom_fields: [
             { name: "Source", value: source || "website" },
             ...(source?.startsWith("lead-magnet-")
-              ? [{ name: "lead_magnet", value: source.replace("lead-magnet-", "") }]
+              ? [
+                  {
+                    name: "lead_magnet",
+                    value: source.replace("lead-magnet-", ""),
+                  },
+                ]
               : []),
           ],
         }),
@@ -53,6 +58,31 @@ export async function POST(request: NextRequest) {
         { error: "Failed to subscribe" },
         { status: response.status }
       );
+    }
+
+    const data = await response.json();
+    const subscriberId = data?.data?.id;
+
+    if (subscriberId && automationId) {
+      const journeyResponse = await fetch(
+        `https://api.beehiiv.com/v2/publications/${publicationId}/automation_journeys`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            subscriber_id: subscriberId,
+            automation_id: automationId,
+          }),
+        }
+      );
+
+      if (!journeyResponse.ok) {
+        const error = await journeyResponse.text();
+        console.error("Beehiiv automation error:", journeyResponse.status, error);
+      }
     }
 
     return NextResponse.json({ success: true });
