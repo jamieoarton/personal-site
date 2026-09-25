@@ -5,11 +5,12 @@ import { useState } from "react";
 interface BeehiivFormProps {
   publicationId?: string;
   source?: string;
-  automationId?: string;
 }
 
-export function BeehiivForm({ publicationId, source, automationId }: BeehiivFormProps) {
+export function BeehiivForm({ publicationId, source }: BeehiivFormProps) {
   const [email, setEmail] = useState("");
+  // Honeypot: hidden from people, filled in by naive bots. Checked server-side.
+  const [company, setCompany] = useState("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -40,7 +41,7 @@ export function BeehiivForm({ publicationId, source, automationId }: BeehiivForm
       const res = await fetch(`/api/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: source || "website", automationId }),
+        body: JSON.stringify({ email, source: source || "website", company }),
       });
 
       if (!res.ok) {
@@ -79,6 +80,16 @@ export function BeehiivForm({ publicationId, source, automationId }: BeehiivForm
         onSubmit={handleSubmit}
         className="flex flex-col sm:flex-row gap-3"
       >
+        <input
+          type="text"
+          name="company"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="hidden"
+        />
         <input
           type="email"
           value={email}

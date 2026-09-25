@@ -1,11 +1,54 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkBotId } from "botid/server";
+import { leadMagnets } from "@/lib/lead-magnets";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const LEAD_MAGNET_PREFIX = "lead-magnet-";
+
+// The automation a subscriber is enrolled in is derived from `source` here,
+// never taken from the request: accepting an `automationId` from the client
+// let anyone enrol any address in any automation.
+function automationIdFor(source: string): string | undefined {
+  if (!source.startsWith(LEAD_MAGNET_PREFIX)) return undefined;
+  const slug = source.slice(LEAD_MAGNET_PREFIX.length);
+  return leadMagnets.find((lm) => lm.slug === slug)?.automationId;
+}
 
 export async function POST(request: NextRequest) {
-  const { email, source, automationId } = await request.json();
-
-  if (!email || typeof email !== "string") {
-    return NextResponse.json({ error: "Email is required" }, { status: 400 });
+  // Requests without BotID's client-side classification (curl, scripts,
+  // headless browsers) are rejected. Always passes in local development.
+  const verification = await checkBotId();
+  if (verification.isBot) {
+    return NextResponse.json({ error: "Access denied" }, { status: 403 });
   }
+
+  let body: { email?: unknown; source?: unknown; company?: unknown };
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  }
+
+  // Honeypot: the form renders `company` hidden, so a real person never fills
+  // it. Answer as if it worked so bots don't learn they were caught.
+  if (typeof body.company === "string" && body.company.trim() !== "") {
+    return NextResponse.json({ success: true });
+  }
+
+  const email =
+    typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+  if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
+    return NextResponse.json(
+      { error: "A valid email is required" },
+      { status: 400 }
+    );
+  }
+
+  const source =
+    typeof body.source === "string" && body.source.length <= 100
+      ? body.source
+      : "website";
+  const automationId = automationIdFor(source);
 
   const apiKey = process.env.BEEHIIV_API_KEY;
   const publicationId = process.env.BEEHIIV_PUBLICATION_ID;
@@ -28,21 +71,24 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({
           email,
-          reactivate_existing: true,
+          // Never re-subscribe an address that unsubscribed: this endpoint
+          // cannot prove the submitter owns the address. Only flip this back
+          // to true with beehiiv double opt-in enabled.
+          reactivate_existing: false,
           send_welcome_email: true,
-          utm_source: source || "jamieoarton.com",
+          utm_source: source,
           utm_medium: "website",
-          utm_campaign: source?.startsWith("lead-magnet-")
-            ? source.replace("lead-magnet-", "")
+          utm_campaign: source.startsWith(LEAD_MAGNET_PREFIX)
+            ? source.slice(LEAD_MAGNET_PREFIX.length)
             : "",
           referring_site: "https://jamieoarton.com",
           custom_fields: [
-            { name: "Source", value: source || "website" },
-            ...(source?.startsWith("lead-magnet-")
+            { name: "Source", value: source },
+            ...(source.startsWith(LEAD_MAGNET_PREFIX)
               ? [
                   {
                     name: "lead_magnet",
-                    value: source.replace("lead-magnet-", ""),
+                    value: source.slice(LEAD_MAGNET_PREFIX.length),
                   },
                 ]
               : []),
