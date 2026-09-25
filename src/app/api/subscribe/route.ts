@@ -71,10 +71,12 @@ export async function POST(request: NextRequest) {
         },
         body: JSON.stringify({
           email,
-          // Never re-subscribe an address that unsubscribed: this endpoint
-          // cannot prove the submitter owns the address. Only flip this back
-          // to true with beehiiv double opt-in enabled.
-          reactivate_existing: false,
+          // Safe only because the publication has double opt-in: a
+          // previously-unsubscribed address gets a confirmation email and is
+          // not reactivated until its owner clicks it. Set to false if double
+          // opt-in is ever turned off, since this endpoint cannot itself prove
+          // the submitter owns the address.
+          reactivate_existing: true,
           send_welcome_email: true,
           utm_source: source,
           utm_medium: "website",
